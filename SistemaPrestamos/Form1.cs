@@ -1,19 +1,26 @@
 using System;
 using System.Windows.Forms;
+using SistemaPresatamos.Models;
 
 namespace SistemaPresatamos
 {
     public partial class Form1 : Form
     {
+        private Prestamo _modeloPrestamo;
+
         public Form1()
         {
             InitializeComponent();
+
+            _modeloPrestamo = new Prestamo();
+
             CargarOpcionesIniciales();
+            ActualizarPanelHistorial();
         }
 
         private void CargarOpcionesIniciales()
         {
-            // Llenar el ComboBox de carreras en la pestaña de Usuarios
+            // Llenar el ComboBox de carreras en la pestaña de usuarios
             cmbCarrera.Items.Add("Ingeniería Informática");
             cmbCarrera.Items.Add("Ingeniería en Sistemas");
             cmbCarrera.Items.Add("Licenciatura en Administración");
@@ -98,25 +105,149 @@ namespace SistemaPresatamos
         // 5. Préstamos
         private void btnGuardarPrestamo_Click(object sender, EventArgs e)
         {
-            string idPrestamo = txtIdPrestamo.Text;
-            string idUsuario = txtIdUsuarioPrestamo.Text;
-            string idElemento = txtIdElementoPrestamo.Text;
-            string fechaP = dtpFechaPrestamo.Value.ToShortDateString();
-            string fechaD = dtpFechaDevolucion.Value.ToShortDateString();
-            string ruta = txtRutaImagenPrestamo.Text;
-            bool estado = chkEstadoPrestamo.Checked;
-
-            txtResultadoPrestamo.Text = $"PRÉSTAMO REGISTRADO:\r\n" +
-                                        $"ID Préstamo: {idPrestamo}\r\n" +
-                                        $"ID Usuario: {idUsuario}\r\n" +
-                                        $"ID Elemento: {idElemento}\r\n" +
-                                        $"Fecha Préstamo: {fechaP}\r\n" +
-                                        $"Fecha Devolución: {fechaD}\r\n" +
-                                        $"Ruta Imagen: {ruta}\r\n" +
-                                        $"Estado: {(estado ? "Activo" : "Finalizado")}";
+            RegistrarEstadoPrestamo();
         }
 
-        // 6. Devoluciones
+        private void btnRegistrarEstado_Click(object sender, EventArgs e)
+        {
+            RegistrarEstadoPrestamo();
+        }
+
+        private void RegistrarEstadoPrestamo()
+        {
+            int idPrestamo;
+            int idUsuario;
+            int idElemento;
+
+            if (!int.TryParse(txtIdPrestamo.Text, out idPrestamo) ||
+                !int.TryParse(txtIdUsuarioPrestamo.Text, out idUsuario) ||
+                !int.TryParse(txtIdElementoPrestamo.Text, out idElemento))
+            {
+                MessageBox.Show(
+                    "ID de préstamo, usuario y elemento deben ser números enteros.",
+                    "Dato inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            if (dtpFechaDevolucion.Value < dtpFechaPrestamo.Value)
+            {
+                MessageBox.Show(
+                    "La fecha de devolución no puede ser anterior a la fecha de préstamo.",
+                    "Fechas inválidas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            Prestamo nuevoPrestamo = new Prestamo(
+                idPrestamo,
+                dtpFechaPrestamo.Value,
+                dtpFechaDevolucion.Value,
+                txtRutaImagenPrestamo.Text,
+                DateTime.Now,
+                chkEstadoPrestamo.Checked
+            );
+
+            nuevoPrestamo.IdUsuario = idUsuario;
+            nuevoPrestamo.IdElemento = idElemento;
+
+            // Primero se guarda el registro y despues se apila su estado
+            _modeloPrestamo.InsertarRegistro(nuevoPrestamo);
+            _modeloPrestamo.ApilarAccion(nuevoPrestamo);
+
+            txtResultadoPrestamo.Text =
+                "PRÉSTAMO REGISTRADO Y APILADO:" + Environment.NewLine +
+                "ID Préstamo: " + nuevoPrestamo.Id + Environment.NewLine +
+                "ID Usuario: " + nuevoPrestamo.IdUsuario + Environment.NewLine +
+                "ID Elemento: " + nuevoPrestamo.IdElemento + Environment.NewLine +
+                "Fecha Préstamo: " + nuevoPrestamo.FechaPrestamo.ToShortDateString() + Environment.NewLine +
+                "Fecha Devolución: " + nuevoPrestamo.FechaDevolucion.ToShortDateString() + Environment.NewLine +
+                "Estado: " + (nuevoPrestamo.EsActivo ? "Activo" : "Finalizado") + Environment.NewLine +
+                Environment.NewLine +
+                "Cima: " + _modeloPrestamo.InspeccionarCima();
+
+            ActualizarPanelHistorial();
+        }
+
+        private void btnDeshacer_Click(object sender, EventArgs e)
+        {
+            Prestamo revertido = _modeloPrestamo.DesapilarYRevertir();
+
+            if (revertido == null)
+            {
+                MessageBox.Show(
+                    "No hay elementos en la pila para deshacer.",
+                    "Historial vacío",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                ActualizarPanelHistorial();
+                return;
+            }
+
+            // Reflejamos el estado revertido en el formulario.
+            txtIdPrestamo.Text = revertido.Id.ToString();
+            txtIdUsuarioPrestamo.Text = revertido.IdUsuario.ToString();
+            txtIdElementoPrestamo.Text = revertido.IdElemento.ToString();
+            dtpFechaPrestamo.Value = revertido.FechaPrestamo;
+            dtpFechaDevolucion.Value = revertido.FechaDevolucion;
+            txtRutaImagenPrestamo.Text = revertido.RutaImagen;
+            chkEstadoPrestamo.Checked = revertido.EsActivo;
+
+            txtResultadoPrestamo.Text =
+                "ÚLTIMO PRÉSTAMO DESHECHO:" + Environment.NewLine +
+                revertido.ToString() + Environment.NewLine +
+                Environment.NewLine +
+                "El elemento fue extraído con Pop() y eliminado del almacenamiento.";
+
+            ActualizarPanelHistorial();
+        }
+
+        private void btnVaciarHistorial_Click(object sender, EventArgs e)
+        {
+            _modeloPrestamo.VaciarHistorial();
+            txtResultadoPrestamo.Text =
+                "HISTORIAL VACIADO" + Environment.NewLine +
+                "La pila fue limpiada con Clear().";
+
+            ActualizarPanelHistorial();
+        }
+
+        private void ActualizarPanelHistorial()
+        {
+            lstHistorialPrestamos.Items.Clear();
+
+            Prestamo[] historial = _modeloPrestamo.VolcadoAArregloLineal();
+
+            for (int i = 0; i < historial.Length; i++)
+            {
+                lstHistorialPrestamos.Items.Add(historial[i]);
+            }
+
+            int cantidad = _modeloPrestamo.ContarHistorial();
+            lblConteoHistorial.Text = "Elementos en pila: " + cantidad;
+
+            Prestamo cima = _modeloPrestamo.InspeccionarCima();
+
+            if (cima != null)
+            {
+                lblCimaHistorial.Text = "Siguiente acción a revertir: Préstamo #" + cima.Id;
+            }
+            else
+            {
+                lblCimaHistorial.Text = "Siguiente acción a revertir: Ninguna";
+            }
+
+
+            btnDeshacer.Enabled = cantidad > 0;
+            btnVaciarHistorial.Enabled = cantidad > 0;
+        }
+
+
         private void btnGuardarDevolucion_Click(object sender, EventArgs e)
         {
             string id = txtIdDevolucion.Text;

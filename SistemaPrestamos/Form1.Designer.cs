@@ -114,6 +114,12 @@
             label30 = new Label();
             label29 = new Label();
             label28 = new Label();
+            btnRegistrarEstado = new Button();
+            btnDeshacer = new Button();
+            btnVaciarHistorial = new Button();
+            lstHistorialPrestamos = new ListBox();
+            lblCimaHistorial = new Label();
+            lblConteoHistorial = new Label();
             tabPage6 = new TabPage();
             txtResultadoDevolucion = new TextBox();
             groupBox6 = new GroupBox();
@@ -866,6 +872,12 @@
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(lblConteoHistorial);
+            tabPage5.Controls.Add(lblCimaHistorial);
+            tabPage5.Controls.Add(lstHistorialPrestamos);
+            tabPage5.Controls.Add(btnVaciarHistorial);
+            tabPage5.Controls.Add(btnDeshacer);
+            tabPage5.Controls.Add(btnRegistrarEstado);
             tabPage5.Controls.Add(txtResultadoPrestamo);
             tabPage5.Controls.Add(groupBox5);
             tabPage5.Controls.Add(label28);
@@ -875,6 +887,64 @@
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Préstamos";
             tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrarEstado
+            // 
+            btnRegistrarEstado.Location = new Point(292, 286);
+            btnRegistrarEstado.Name = "btnRegistrarEstado";
+            btnRegistrarEstado.Size = new Size(140, 30);
+            btnRegistrarEstado.TabIndex = 20;
+            btnRegistrarEstado.Text = "Registrar Estado";
+            btnRegistrarEstado.UseVisualStyleBackColor = true;
+            btnRegistrarEstado.Click += btnRegistrarEstado_Click;
+            // 
+            // btnDeshacer
+            // 
+            btnDeshacer.Location = new Point(438, 286);
+            btnDeshacer.Name = "btnDeshacer";
+            btnDeshacer.Size = new Size(140, 30);
+            btnDeshacer.TabIndex = 21;
+            btnDeshacer.Text = "Deshacer Último";
+            btnDeshacer.UseVisualStyleBackColor = true;
+            btnDeshacer.Click += btnDeshacer_Click;
+            // 
+            // btnVaciarHistorial
+            // 
+            btnVaciarHistorial.Location = new Point(584, 286);
+            btnVaciarHistorial.Name = "btnVaciarHistorial";
+            btnVaciarHistorial.Size = new Size(120, 30);
+            btnVaciarHistorial.TabIndex = 22;
+            btnVaciarHistorial.Text = "Vaciar Historial";
+            btnVaciarHistorial.UseVisualStyleBackColor = true;
+            btnVaciarHistorial.Click += btnVaciarHistorial_Click;
+            // 
+            // lstHistorialPrestamos
+            // 
+            lstHistorialPrestamos.FormattingEnabled = true;
+            lstHistorialPrestamos.HorizontalScrollbar = true;
+            lstHistorialPrestamos.ItemHeight = 15;
+            lstHistorialPrestamos.Location = new Point(292, 338);
+            lstHistorialPrestamos.Name = "lstHistorialPrestamos";
+            lstHistorialPrestamos.Size = new Size(480, 64);
+            lstHistorialPrestamos.TabIndex = 23;
+            // 
+            // lblCimaHistorial
+            // 
+            lblCimaHistorial.AutoSize = true;
+            lblCimaHistorial.Location = new Point(292, 319);
+            lblCimaHistorial.Name = "lblCimaHistorial";
+            lblCimaHistorial.Size = new Size(250, 15);
+            lblCimaHistorial.TabIndex = 24;
+            lblCimaHistorial.Text = "Siguiente acción a revertir: Ninguna";
+            // 
+            // lblConteoHistorial
+            // 
+            lblConteoHistorial.AutoSize = true;
+            lblConteoHistorial.Location = new Point(590, 319);
+            lblConteoHistorial.Name = "lblConteoHistorial";
+            lblConteoHistorial.Size = new Size(120, 15);
+            lblConteoHistorial.TabIndex = 25;
+            lblConteoHistorial.Text = "Elementos en pila: 0";
             // 
             // txtResultadoPrestamo
             // 
@@ -1896,6 +1966,12 @@
         private Label label35;
         private TextBox txtIdUsuarioPrestamo;
         private Label label34;
+        private Button btnRegistrarEstado;
+        private Button btnDeshacer;
+        private Button btnVaciarHistorial;
+        private ListBox lstHistorialPrestamos;
+        private Label lblCimaHistorial;
+        private Label lblConteoHistorial;
         private TabPage tabPage6;
         private GroupBox groupBox6;
         private Label label36;
@@ -1973,3 +2049,4 @@
         private TextBox txtResultadoSancion;
     }
 }
+

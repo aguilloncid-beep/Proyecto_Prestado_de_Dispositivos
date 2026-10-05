@@ -31,3 +31,36 @@ C:\Users\hecto\OneDrive\Documentos\Programacion Orientada a Eventos\SistemaPrest
 C:\Users\hecto\OneDrive\Documentos\Programacion Orientada a Eventos\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.FrmBase.resources
 C:\Users\hecto\OneDrive\Documentos\Programacion Orientada a Eventos\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.FrmUsuario.resources
 C:\Users\hecto\OneDrive\Documentos\Programacion Orientada a Eventos\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.FrmAdministrador.resources
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.Form1.resources
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.FrmAdministrador.resources
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.FrmBase.resources
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.FrmUsuario.resources
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.csproj.GenerateResource.cache
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.AssemblyInfo.cs
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\refint\SistemaPresatamos.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.pdb
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\SistemaPresatamos.exe
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\SistemaPresatamos.deps.json
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\SistemaPresatamos.runtimeconfig.json
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\SistemaPresatamos.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\SistemaPresatamos.pdb
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\Google.Protobuf.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\K4os.Compression.LZ4.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\K4os.Hash.xxHash.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\MySql.Data.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\ZstdSharp.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\bin\Debug\net10.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaP.BCB7BDC2.Up2Date
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\SistemaPresatamos.genruntimeconfig.cache
+C:\Users\PC\source\repos\Proyecto_Prestado_de_Dispositivos-main\SistemaPrestamos\obj\Debug\net10.0-windows\ref\SistemaPresatamos.dll
