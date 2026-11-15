@@ -74,6 +74,8 @@ namespace SistemaPresatamos
             mnuPrestamos.DropDownItems.Add(mnuRegistrarDevolucion);
             mnuPrestamos.DropDownItems.Add(Item("&Historial",
                 (s, e) => AbrirFormulario(typeof(FrmHistorial), () => new FrmHistorial())));
+            mnuPrestamos.DropDownItems.Add(Item("&Consulta detallada (con fotografía)",
+                (s, e) => AbrirFormulario(typeof(FrmConsultaPrestamos), () => new FrmConsultaPrestamos())));   // A4.3
 
             Configurar(mnuUsuarios, "&Usuarios",
                 (s, e) => AbrirFormulario(typeof(FrmUsuario), () => new FrmUsuario()));
