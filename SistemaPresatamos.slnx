@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Data/">
+    <File Path="Data/ConexionBD.cs" />
+    <File Path="Data/UsuarioDAO.cs" />
+    <File Path="Data/MaterialDAO.cs" />
+    <File Path="Data/PrestamoDAO.cs" />
+    <File Path="Data/DevolucionDAO.cs" />
+  </Folder>
+  <Folder Name="/Database/">
+    <File Path="Database/SistemaPrestamos.sql" />
+  </Folder>
+  <Project Path="SistemaPresatamos.csproj" />
+</Solution>
