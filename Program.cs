@@ -4,7 +4,7 @@ namespace SistemaPresatamos
 {
     internal static class Program
     {
-        /// <summary>
+       
         ///  Punto de entrada: inicio de sesión y apertura del panel según el rol.
         /// </summary>
         [STAThread]
