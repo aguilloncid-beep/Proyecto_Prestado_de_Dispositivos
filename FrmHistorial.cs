@@ -29,7 +29,7 @@ namespace SistemaPresatamos
 
         public FrmHistorial()
         {
-            Sesion.ExigirAdministrador();
+            Sesion.ExigirSesion();
 
             Text = "Historial de préstamos y devoluciones";
             ClientSize = new Size(1000, 580 + Autoria.AlturaLabel);

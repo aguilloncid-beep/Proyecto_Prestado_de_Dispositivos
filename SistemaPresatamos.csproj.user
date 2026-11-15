@@ -14,10 +14,13 @@
     <Compile Update="FrmHistorial.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmInfoSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmPanelAdmin.cs">
+    <Compile Update="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmPanelAlumno.cs">
@@ -26,10 +29,16 @@
     <Compile Update="FrmPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmRegistroAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmRespaldo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmUsuario.cs">

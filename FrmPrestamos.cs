@@ -29,7 +29,7 @@ namespace SistemaPresatamos
 
         public FrmPrestamos()
         {
-            Sesion.ExigirAdministrador();
+            Sesion.ExigirPersonal();
 
             Text = "Registrar préstamo";
             ClientSize = new Size(900, 560 + Autoria.AlturaLabel);

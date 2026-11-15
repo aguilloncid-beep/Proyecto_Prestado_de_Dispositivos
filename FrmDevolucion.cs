@@ -28,7 +28,7 @@ namespace SistemaPresatamos
 
         public FrmDevolucion()
         {
-            Sesion.ExigirAdministrador();
+            Sesion.ExigirPersonal();
 
             Text = "Registrar devolución";
             ClientSize = new Size(900, 580 + Autoria.AlturaLabel);

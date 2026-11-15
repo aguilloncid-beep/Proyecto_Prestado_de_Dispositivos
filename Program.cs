@@ -1,32 +1,47 @@
+// =====================================================================
+//  Autoría - Equipo 5 
+//  Integrantes en orden alfabético por primer apellido
+//    FERNANDEZ HERNANDEZ Kevin Isaid - Integrante 1
+//    Flores Becerra Cid Hector - Integrante 2
+//    Govea Mijares Jorge Luis - Integrante 3
+// =====================================================================
+using SistemaPresatamos.Models;
 using SistemaPresatamos.Seguridad;
 
 namespace SistemaPresatamos
 {
     internal static class Program
     {
-       
-        ///  Punto de entrada: inicio de sesión y apertura del panel según el rol.
+        /// <summary>
+        ///  Punto de entrada. Flujo: FrmLogin (modal) -> si DialogResult.OK, ventana principal MDI.
+        ///  Si el acceso no se autoriza o el usuario cancela, la aplicación termina.
+        ///  El login no se oculta con Hide(): se cierra antes de abrir la ventana principal.
         /// </summary>
         [STAThread]
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-
+            MessageBox.Show(SistemaPresatamos.Data.ConexionBD.ProbarConexion(out string mensaje) ? "OK: " + mensaje : "ERROR: " + mensaje);
             while (true)
             {
-                using (LoginForm login = new LoginForm())
+                DialogResult resultado;
+                using (FrmLogin login = new FrmLogin())
                 {
-                    if (login.ShowDialog() != DialogResult.OK)
-                        break;
+                    resultado = login.ShowDialog();
                 }
 
-                // Panel distinto según el rol: el alumno nunca recibe las ventanas de administración.
-                Form panel = Sesion.EsAdministrador ? new FrmPanelAdmin() : new FrmPanelAlumno();
-                Application.Run(panel);
-                panel.Dispose();
+                if (resultado != DialogResult.OK)
+                    break;
+
+                // Los alumnos (acceso con base de datos) usan su vista de consulta; el resto, el MDI.
+                bool esAlumno = Sesion.UsuarioActual != null && Sesion.UsuarioActual.Rol == Roles.Alumno;
+                Form principal = esAlumno ? new FrmPanelAlumno() : new FrmPrincipal();
+
+                Application.Run(principal);
+                principal.Dispose();
 
                 bool volverAlLogin = Sesion.CerrarSesionSolicitada;
-                Sesion.Cerrar();
+                Sesion.Cerrar();   // también limpia SesionSistema
 
                 if (!volverAlLogin)
                     break;

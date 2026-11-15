@@ -42,7 +42,7 @@ namespace SistemaPresatamos
 
         public FrmReportes()
         {
-            Sesion.ExigirAdministrador();
+            Sesion.ExigirPersonal();
 
             Text = "Reporte de préstamos (procesamiento concurrente)";
             ClientSize = new Size(960, 580 + Autoria.AlturaLabel);
