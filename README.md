@@ -1,1 +1,0 @@
-# Proyecto_Prestado_de_Dispositivos
